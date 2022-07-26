@@ -1,7 +1,10 @@
 # workSchedule program :)
+Design Patterns:
+  DAO (Data Access Objet) to get information from our file.
+  MVC (Model-View-Controller) to set information, handle information and do some logic and show it to the user.
 
 Solution: 
-  We will use the DAO and MVC design patterns. We slice each line read from our inputs file, we separate the employee and his schedule, internally the slicer function will create a key-value collection where we will take as key the day and its value will be the hours.
+  We slice each line read from our inputs file, we separate the employee and his schedule, internally the slicer function will create a key-value collection where we will take as key the day and its value will be the hours.
 This information will be converted into an employee object and we will return a list of employees, with their respective schedule.
 
   We will take 2 employees from the list and we will compare their schedules, in case of sharing hours, we will add that value in a variable and we will return the name of both employees and the number of hours they share.
