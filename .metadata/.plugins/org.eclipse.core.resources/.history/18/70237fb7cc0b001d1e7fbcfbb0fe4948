@@ -1,0 +1,34 @@
+package com.acme.schedules.utils;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SlicerTest {
+
+	@Test
+	public void testSliceEmployeeAndSchedule() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEmployeeSchedule() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEmployeeHours() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetHourOnMinutes() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testNormalizeString() {
+		fail("Not yet implemented");
+	}
+
+}

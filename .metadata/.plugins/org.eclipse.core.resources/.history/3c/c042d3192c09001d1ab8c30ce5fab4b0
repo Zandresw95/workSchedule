@@ -1,0 +1,37 @@
+package com.acme.employees;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.acme.controller.Payment;
+import com.acme.model.Employee;
+import com.acme.utils.Slicer;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		FileHandler fileHandler = new FileHandler("src/main/file/inputs.txt");
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		try {
+			employees = fileHandler.getEmployeesFromFile();
+			for (Employee employee : employees) {
+				System.out.println("Employee name: " + employee.getName());
+				System.out.println("Employee work: " + employee.getWorkSchedule());
+				System.out.println("Employee workarray: " + employee.getWork());
+				System.out.println("Employee entry: " + employee.getWorkSchedule().entrySet());
+				
+//				System.out.println(Payment.calculateEmployeePayment(employee));
+//				System.out.println("Employee time: " + employee.getWork().get("MO"));
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}

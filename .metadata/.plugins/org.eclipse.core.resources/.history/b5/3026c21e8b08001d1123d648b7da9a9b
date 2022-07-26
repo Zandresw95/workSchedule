@@ -1,0 +1,25 @@
+package com.acme.employees;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import com.acme.utils.Slicer;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+//		FileHandler fh = new FileHandler("src/main/file/inputs.txt");
+//		try {
+//			fh.read();
+//		} catch (FileNotFoundException e) {
+//			System.out.println(e.getMessage());
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//		}
+		Slicer.sliceData("ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00");
+	}
+}

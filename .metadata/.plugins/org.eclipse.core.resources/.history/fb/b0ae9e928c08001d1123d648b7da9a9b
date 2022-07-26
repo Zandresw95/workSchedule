@@ -1,0 +1,14 @@
+package com.acme.utils;
+
+import com.acme.model.Employee;
+
+public class Slicer {
+	public static Employee sliceData(String line) {
+		Employee employee = new Employee();
+		String[] data= line.split("=");
+		String[] workSchedule = data[1].split(",");
+		employee.setName(data[0]);
+		employee.setWorkSchedule(workSchedule);
+		return employee; 
+	}
+}

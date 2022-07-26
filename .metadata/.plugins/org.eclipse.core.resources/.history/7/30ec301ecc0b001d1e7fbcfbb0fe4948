@@ -1,0 +1,26 @@
+package com.acme.ScheduleEmployees;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.acme.schedules.utils.Conversor;
+
+public class ConversorTest {
+
+	@Test
+	public void testConvertHoursToMinutes() {
+		assertEquals(180, Conversor.convertHoursToMinutes(3));
+	}
+
+	@Test
+	public void testConvertMinutesToHours() {
+		assertEquals(5, Conversor.convertMinutesToHours(300));
+	}
+
+	@Test
+	public void testGetRemainingMinutes() {
+		assertEquals(6, Conversor.getRemainingMinutes(366));
+	}
+
+}

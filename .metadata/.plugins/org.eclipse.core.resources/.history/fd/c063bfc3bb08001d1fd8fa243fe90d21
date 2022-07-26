@@ -1,0 +1,36 @@
+package com.acme.model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Employee {
+	private String name;
+	private Map<String, ArrayList<String>> work;
+
+	public Employee() {
+	}
+
+	public Employee(String name, Map<String, ArrayList<String>> work) {
+		super();
+		this.name = name;
+		this.work = work;
+	}
+
+	public Map<String, ArrayList<String>> getWork() {
+		return work;
+	}
+
+	public void setWork(Map<String, ArrayList<String>> work) {
+		this.work = work;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}

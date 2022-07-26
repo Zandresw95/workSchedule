@@ -1,0 +1,34 @@
+package com.acme.schedules.utils;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SlicerTest {
+
+	@Test
+	public void testSliceEmployeeAndSchedule() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEmployeeSchedule() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEmployeeHours() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetHourOnMinutes() {
+		assertEquals(600,Slicer.getHourOnMinutes("10:00"));
+	}
+
+	@Test
+	public void testNormalizeString() {
+		assertEquals("RENE=MO10:00-12:00,TU20:00-23:00", Slicer.normalizeString("RENE = MO10:00 - 12: 00,TU20:00 -23 : 00"));
+	}
+
+}

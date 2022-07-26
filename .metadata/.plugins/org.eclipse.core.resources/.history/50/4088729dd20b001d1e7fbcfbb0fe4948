@@ -1,0 +1,66 @@
+package com.acme.schedules.utils;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.acme.schedules.model.Employee;
+
+public class SlicerTest {
+
+	@Test
+	public void testSliceEmployeeAndSchedule() {
+		Employee employee = new Employee();
+		HashMap<String, ArrayList<String>> scheduleTest = new HashMap<String, ArrayList<String>>();
+		scheduleTest.put("MO", (ArrayList<String>) List.of("10:00", "12:00"));
+		scheduleTest.put("TU", (ArrayList<String>) List.of("11:00", "13:00"));
+		scheduleTest.put("WE", (ArrayList<String>) List.of("12:00", "14:00"));
+		scheduleTest.put("TH", (ArrayList<String>) List.of("13:00", "15:00"));
+		scheduleTest.put("FR", (ArrayList<String>) List.of("14:00", "16:00"));
+		scheduleTest.put("SA", (ArrayList<String>) List.of("15:00", "17:00"));
+		scheduleTest.put("SU", (ArrayList<String>) List.of("16:00", "18:00"));
+		employee.setName("RENE");
+		employee.setWorkSchedule(scheduleTest);
+		assertEquals(employee, Slicer.sliceEmployeeAndSchedule(
+				"RENE=MO10:00-12:00,TU11:00-13:00,WE12:00-14:00,TH13:00-15:00,FR14:00-16:00,SA15:00-17:00,SU16:00- 18:00"));
+	}
+
+	@Test
+	public void testGetEmployeeSchedule() {
+		HashMap<String, ArrayList<String>> scheduleTest = new HashMap<String, ArrayList<String>>();
+		scheduleTest.put("MO", (ArrayList<String>) List.of("10:00", "12:00"));
+		scheduleTest.put("TU", (ArrayList<String>) List.of("11:00", "13:00"));
+		scheduleTest.put("WE", (ArrayList<String>) List.of("12:00", "14:00"));
+		scheduleTest.put("TH", (ArrayList<String>) List.of("13:00", "15:00"));
+		scheduleTest.put("FR", (ArrayList<String>) List.of("14:00", "16:00"));
+		scheduleTest.put("SA", (ArrayList<String>) List.of("15:00", "17:00"));
+		scheduleTest.put("SU", (ArrayList<String>) List.of("16:00", "18:00"));
+		String[] arrayTest = { "MO10:00-12:00", "TU11:00-13:00", "WE12:00-14:00", "TH13:00-15:00", "FR14:00-16:00",
+				"SA15:00-17:00", "SU16:00-18:00" };
+		assertEquals(true, scheduleTest.equals(Slicer.getEmployeeSchedule(arrayTest)));
+	}
+
+	@Test
+	public void testGetEmployeeHours() {
+		ArrayList<String> hoursTest = new ArrayList<>();
+		hoursTest.add("10:00");
+		hoursTest.add("12:00");
+		assertEquals(hoursTest, Slicer.getEmployeeHours("10:00-12:00"));
+	}
+
+	@Test
+	public void testGetHourOnMinutes() {
+		assertEquals(600, Slicer.getHourOnMinutes("10:00"));
+	}
+
+	@Test
+	public void testNormalizeString() {
+		assertEquals("RENE=MO10:00-12:00,TU20:00-23:00",
+				Slicer.normalizeString("RENE = MO10:00 - 12: 00,TU20:00 -23 : 00"));
+	}
+
+}

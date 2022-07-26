@@ -1,0 +1,9 @@
+package com.acme.schedules.utils;
+
+public class FileHandler {
+	private String path = "";
+
+	public FileHandler(String filePath) {
+		this.path = filePath;
+	}
+}

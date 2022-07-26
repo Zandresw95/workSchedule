@@ -1,0 +1,28 @@
+package com.acme.utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class WorkSchedule {
+
+	private static final HashMap<String, ArrayList<String>> initialData = initMap();
+
+	private static HashMap<String, ArrayList<String>> initMap() {
+		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+		ArrayList<String> workDays = new ArrayList<String>();
+		ArrayList<String> weekEnds = new ArrayList<String>();
+		workDays.add("00:01 - 09:00");
+		workDays.add("09:01 - 18:00");
+		workDays.add("18:01 - 00:00");
+		weekEnds.add("00:01 - 09:00");
+		weekEnds.add("09:01 - 18:00");
+		weekEnds.add("18:01 - 00:00");
+		map.put("LaboralDay", workDays);
+		map.put("weekEnd", weekEnds);
+		return map;
+	}
+	
+	public static HashMap<String, ArrayList<String>> getSchedule(){
+		return WorkSchedule.initialData;
+	}
+}

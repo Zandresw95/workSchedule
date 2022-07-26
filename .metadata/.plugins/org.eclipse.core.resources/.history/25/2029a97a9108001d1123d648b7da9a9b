@@ -1,0 +1,31 @@
+package com.acme.employees;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.acme.model.Employee;
+import com.acme.utils.Slicer;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+//		FileHandler fileHandler = new FileHandler("src/main/file/inputs.txt");
+//		ArrayList<Employee> employees = new ArrayList<Employee>();
+//		try {
+//			employees = fileHandler.getEmployeesFromFile();
+//			for (Employee employee : employees) {
+//				System.out.println("Employee name: " + employee.getName());
+//				System.out.println("Employee workSchedule: " + employee.getWorkSchedule());
+//			}
+//		} catch (FileNotFoundException e) {
+//			System.out.println(e.getMessage());
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//		}
+		Slicer.sliceVoidData("ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00");
+	}
+}

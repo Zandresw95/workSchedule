@@ -1,0 +1,13 @@
+package com.acme.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import com.acme.model.Employee;
+import com.acme.utils.Comparator;
+
+public class Payment {
+	HashMap<String, ArrayList<String>> mapSchedule;
+
+	mapSchedule=WorkSchedule.getScheduleInfo();
+
+}

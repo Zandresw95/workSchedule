@@ -1,0 +1,29 @@
+package com.acme.employees;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileHandler {
+	private String path="";
+	
+	public FileHandler(String filePath) {
+		this.path = filePath;
+	}
+	
+	public void read() throws IOException,FileNotFoundException  {
+		File file = new File(path);
+		try {
+			FileReader fr = new FileReader(file);
+			int filer = fr.read();
+			System.out.println("read " + filer);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw new FileNotFoundException("File not found at " + path);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new IOException("There is a problem reading the file " + path);
+		}
+	}
+}

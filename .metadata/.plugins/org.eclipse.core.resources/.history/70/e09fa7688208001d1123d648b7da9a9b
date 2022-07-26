@@ -1,0 +1,13 @@
+package com.acme.employees;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        FileHandler fh = new FileHandler("../../src/file/inputs.txt");
+    }
+}

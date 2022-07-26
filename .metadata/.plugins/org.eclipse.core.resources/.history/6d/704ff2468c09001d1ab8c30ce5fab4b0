@@ -1,0 +1,46 @@
+package com.acme.utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class WorkSchedule {
+
+	private static HashMap<String, ArrayList<String>> initialData = initMap();
+	private static HashMap<String, HashMap<String,Integer>> initData = initialMap();
+
+	private static HashMap<String, ArrayList<String>> initMap() {
+		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+		ArrayList<String> workDays = new ArrayList<String>();
+		ArrayList<String> weekEnds = new ArrayList<String>();
+		workDays.add("00:01 - 09:00");
+		workDays.add("09:01 - 18:00");
+		workDays.add("18:01 - 00:00");
+		weekEnds.add("00:01 - 09:00");
+		weekEnds.add("09:01 - 18:00");
+		weekEnds.add("18:01 - 00:00");
+		map.put("LaboralDay", workDays);
+		map.put("weekEnd", weekEnds);
+		return map;
+	}
+
+	private static HashMap<String, HashMap<String,Integer>> initialMap() {
+		HashMap<String, HashMap<String,Integer>> map = new HashMap<String, HashMap<String,Integer>>();
+		HashMap<String,Integer> schedules = new HashMap<String, Integer>();
+		schedules.put("initial", null);
+		ArrayList<String> workDays = new ArrayList<String>();
+		ArrayList<String> weekEnds = new ArrayList<String>();
+		workDays.add("00:01 - 09:00");
+		workDays.add("09:01 - 18:00");
+		workDays.add("18:01 - 00:00");
+		weekEnds.add("00:01 - 09:00");
+		weekEnds.add("09:01 - 18:00");
+		weekEnds.add("18:01 - 00:00");
+//		map.put("LaboralDay", workDays);
+//		map.put("weekEnd", weekEnds);
+		return map;
+	}
+
+	public static HashMap<String, ArrayList<String>> getScheduleInfo() {
+		return initialData;
+	}
+}

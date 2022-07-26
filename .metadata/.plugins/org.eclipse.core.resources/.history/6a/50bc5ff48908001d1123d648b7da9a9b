@@ -1,0 +1,28 @@
+package com.acme.model;
+
+public class Employee {
+	private String Name;
+	private String workSchedule;
+	
+	public Employee() {}
+	
+	public Employee(String Name, String workSchedule) {
+		this.Name=Name;
+		this.workSchedule=workSchedule;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getWorkSchedule() {
+		return workSchedule;
+	}
+	public void setWorkSchedule(String workSchedule) {
+		this.workSchedule = workSchedule;
+	}
+	
+	
+}

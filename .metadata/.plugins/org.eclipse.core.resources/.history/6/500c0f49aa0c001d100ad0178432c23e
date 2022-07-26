@@ -1,0 +1,20 @@
+package com.acme.schedules.controller;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class EmployeeControllerTest {
+
+	@Test
+	public void testCompareEmployeeSchedules() {
+		
+	}
+
+	@Test
+	public void testGetSharedMinutes() {
+		EmployeeController controller = new EmployeeController();
+		assertEquals(60, controller.getSharedMinutes(600, 720, 660, 720));
+	}
+
+}

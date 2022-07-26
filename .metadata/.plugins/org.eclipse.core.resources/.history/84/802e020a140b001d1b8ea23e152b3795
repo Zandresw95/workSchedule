@@ -1,0 +1,9 @@
+package com.acme.schedules.dao;
+
+import java.util.List;
+
+import com.acme.schedules.model.Employee;
+
+public interface IEmployeeDao {
+	public List<Employee> getEmployees();
+}

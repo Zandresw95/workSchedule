@@ -1,0 +1,41 @@
+package com.acme.schedules.utils;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.acme.schedules.utils.Conversor;
+
+public class ConversorTest {
+
+	@Test
+	public void testConvertHoursToMinutes() {
+		assertEquals(180, Conversor.convertHoursToMinutes(3));
+	}
+
+	@Test
+	public void testConvertZeroHoursToMinutes() {
+		assertEquals(0, Conversor.convertHoursToMinutes(0));
+	}
+
+	@Test
+	public void testConvertMinutesToHours() {
+		assertEquals(5, Conversor.convertMinutesToHours(300));
+	}
+	
+	@Test
+	public void testConvertZeroMinutesToHours() {
+		assertEquals(0, Conversor.convertMinutesToHours(0));
+	}
+
+	@Test
+	public void testGetRemainingMinutes() {
+		assertEquals(6, Conversor.getRemainingMinutes(366));
+	}
+	
+	@Test
+	public void testGetZeroRemainingMinutes() {
+		assertEquals(0, Conversor.getRemainingMinutes(360));
+	}
+
+}

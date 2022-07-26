@@ -1,0 +1,19 @@
+package com.acme.schedules.controller;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class EmployeeControllerTest {
+
+	@Test
+	public void testCompareEmployeeSchedules() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetSharedMinutes() {
+		fail("Not yet implemented");
+	}
+
+}

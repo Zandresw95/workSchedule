@@ -1,0 +1,39 @@
+package com.acme.utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.acme.model.Employee;
+
+public class Slicer {
+	public static Employee sliceEmployeeAndSchedule(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		employee.setName(data[0]);
+		employee.setWork(sliceSchedule(workSchedule));
+		return employee;
+	}
+
+	public static HashMap<String, ArrayList<String>> sliceSchedule(String[] schedule) {
+		HashMap<String, ArrayList<String>> employeeSchedule = new HashMap<String, ArrayList<String>>();
+		for (String work : schedule) {
+			ArrayList<String> workOfDay = new ArrayList<String>();
+			String day = work.substring(0, 2);
+			String time = work.substring(2);
+			workOfDay = sliceTime(time);
+			employeeSchedule.put(day, workOfDay);
+		}
+		return employeeSchedule;
+	}
+
+	public static ArrayList<String> sliceTime(String time) {
+		String[] hours = time.split("-");
+		ArrayList<String> workTime = new ArrayList<String>();
+		for (String hour : hours) {
+			workTime.add(hour);
+		}
+		return workTime;
+	}
+
+}

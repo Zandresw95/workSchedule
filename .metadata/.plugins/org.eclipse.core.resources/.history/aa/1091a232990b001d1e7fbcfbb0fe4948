@@ -1,0 +1,17 @@
+package com.acme.schedules.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.acme.schedules.model.Employee;
+
+public class EmployeeController {
+	public void compareEmployeeSchedules(Employee employee1,Employee employee2) {
+		HashMap<String,ArrayList<String>> employee1Data= employee1.getWorkSchedule();
+		HashMap<String,ArrayList<String>> employee2Data= employee2.getWorkSchedule();
+		int employee1Hour;
+		int employee1Minute;
+		int employee2Hour;
+		int employee2Minute;
+	}
+}

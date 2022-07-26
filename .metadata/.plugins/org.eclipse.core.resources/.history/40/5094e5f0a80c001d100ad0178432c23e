@@ -1,0 +1,19 @@
+package com.acme.schedules.dao;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class EmployeeDaoTest {
+
+	@Test
+	public void testEmployeeDao() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetEmployees() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.acme.ScheduleEmployees;
+
+import junit.framework.TestCase;
+
+public class TestReadingFIle extends TestCase {
+
+}

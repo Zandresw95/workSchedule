@@ -1,0 +1,5 @@
+package com.acme.schedules.model;
+
+public class Employee {
+
+}

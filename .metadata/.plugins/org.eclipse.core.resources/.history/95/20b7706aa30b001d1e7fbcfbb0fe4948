@@ -1,0 +1,44 @@
+package com.acme.schedules.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.acme.schedules.model.Employee;
+import com.acme.schedules.utils.Slicer;
+
+public class EmployeeController {
+	public static void compareEmployeeSchedules(Employee employee1, Employee employee2) {
+		HashMap<String, ArrayList<String>> employee1Data = employee1.getWorkSchedule();
+		HashMap<String, ArrayList<String>> employee2Data = employee2.getWorkSchedule();
+		int employee1InitialHourOnMinutes = 0;
+		int employee1FinalHourOnMinutes = 0;
+		int employee2InitialHourOnMinutes = 0;
+		int employee2FinalHourOnMinutes = 0;
+		for (Map.Entry<String, ArrayList<String>> entry1 : employee1Data.entrySet()) {
+			String key = entry1.getKey();
+			if (employee2Data.containsKey(key)) {
+				ArrayList<String> value1 = entry1.getValue();
+				employee1InitialHourOnMinutes = Slicer.getHourOnMinutes(value1.get(0));
+				employee1FinalHourOnMinutes = Slicer.getHourOnMinutes(value1.get(1));
+//				ArrayList<String> value2 = employee2Data.get(key);
+				employee2InitialHourOnMinutes = Slicer.getHourOnMinutes(value1.get(0));
+				employee2FinalHourOnMinutes = Slicer.getHourOnMinutes(value1.get(1));
+				System.out.println(employee1.getName() + " - " + employee2.getName() + "Prueba del metodo: "
+						+ getSharedMinutes(employee1InitialHourOnMinutes, employee1FinalHourOnMinutes,
+								employee2InitialHourOnMinutes));
+			}
+		}
+	}
+
+	public static int getSharedMinutes(int initialMinutes, int finalMinutes, int minutesToCompare) {
+		int minuteShared = 0;
+		System.out.println("minutos inicil: " + initialMinutes);
+		System.out.println("minutos final: " + finalMinutes);
+		System.out.println("minutos para comparar: " + minutesToCompare);
+		if (initialMinutes<=minutesToCompare && minutesToCompare < finalMinutes) {
+			minuteShared = finalMinutes - minutesToCompare;
+		}
+		return minuteShared;
+	}
+}

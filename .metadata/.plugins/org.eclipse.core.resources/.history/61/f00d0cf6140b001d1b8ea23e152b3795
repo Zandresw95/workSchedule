@@ -1,0 +1,28 @@
+package com.acme.schedules;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import com.acme.schedules.dao.EmployeeDao;
+import com.acme.schedules.model.Employee;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        EmployeeDao employeeDao=new EmployeeDao("src/main/file/inputs.txt");
+        try {
+        	for(Employee employee:employeeDao.getEmployees()) {
+        		System.out.println("Employee Name: " + employee.getName());        		
+        	}
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+    }
+}

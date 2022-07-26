@@ -1,0 +1,64 @@
+package com.acme.utils;
+
+import java.util.HashMap;
+
+import com.acme.model.Employee;
+
+public class Slicer {
+	public static Employee sliceEmployeeAndSchedule(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		employee.setName(data[0]);
+		employee.setWork(sliceSchedule(workSchedule));
+		return employee;
+	}
+
+	public static HashMap<String, String> sliceSchedule(String[] schedule){
+		HashMap<String, String> employeeSchedule = new HashMap<String, String>();
+		for (String work : schedule) {
+			String day = work.substring(0, 2);
+			String time = work.substring(2);
+			employeeSchedule.put(day, time);
+		}
+		return employeeSchedule;
+	}
+	
+	public static void sliceVoidData(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		HashMap<String, String> employeeSchedule = new HashMap<String, String>();
+		System.out.println("EMPLOYEE: " + data[0]);
+		for (String work : workSchedule) {
+			System.out.println("day: " + work.substring(0, 2));
+			String day = work.substring(0, 2);
+			System.out.println("time: " + work.substring(2));
+			String time = work.substring(2);
+			employeeSchedule.put(day, time);
+		}
+		employee.setWork(employeeSchedule);
+	}
+
+//	public static int getWorkedHours(String time) {
+//		int hours = 0;
+//		int initialMinute=0;
+//		int finalMinute=0;
+//		int initialHour=0;
+//		int finalHour=0;
+//		
+//		String[] workedHours = time.split("-");
+//		System.out.println("Hour 1: " + workedHours[0]);
+//		String[] initHour=workedHours[0].split(":");
+//		System.out.println("Hour 2: " + workedHours[1]);
+//		String[] finHour=workedHours[1].split(":");
+//		initialHour= Integer.parseInt(initHour[0]);
+//		initialMinute=Integer.parseInt(initHour[1]);
+//		
+//		finalHour= Integer.parseInt(finHour[0]);
+//		finalMinute= Integer.parseInt(finHour[1]);
+//		System.out
+//				.println("Posible substaction: " + (Integer.valueOf(workedHours[0]) - Integer.valueOf(workedHours[1])));
+//		return hours;
+//	}
+}

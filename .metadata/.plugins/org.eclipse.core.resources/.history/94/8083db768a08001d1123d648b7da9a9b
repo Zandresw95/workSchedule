@@ -1,0 +1,38 @@
+package com.acme.model;
+
+import java.util.Arrays;
+
+public class Employee {
+	private String Name;
+	private String[] workSchedule;
+	
+	public Employee(String[] workSchedule) {
+		this.workSchedule = new String[workSchedule.length];
+	}
+	
+	public Employee(String Name, String[] workSchedule) {
+		workSchedule = new String[workSchedule.length];
+		this.Name=Name;
+		this.workSchedule=workSchedule;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String[] getWorkSchedule() {
+		return workSchedule;
+	}
+	public void setWorkSchedule(String[] workSchedule) {
+		this.workSchedule = workSchedule;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [Name=" + Name + ", workSchedule=" + Arrays.toString(workSchedule) + "]";
+	}
+	
+	
+}

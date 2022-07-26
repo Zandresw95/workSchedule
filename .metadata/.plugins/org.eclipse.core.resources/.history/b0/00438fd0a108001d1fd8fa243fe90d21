@@ -1,0 +1,34 @@
+package com.acme.model;
+
+import java.util.HashMap;
+
+public class Employee {
+	private String name;
+	private HashMap<String, String[]> work;
+
+	public Employee() {
+	}
+
+	public Employee(String name, HashMap<String, String[]> work) {
+		super();
+		this.name = name;
+		this.work = work;
+	}
+
+	public HashMap<String, String[]> getWork() {
+		return work;
+	}
+
+	public void setWork(HashMap<String, String[]> work) {
+		this.work = work;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}

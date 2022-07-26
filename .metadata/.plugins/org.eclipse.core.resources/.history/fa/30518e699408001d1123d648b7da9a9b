@@ -1,0 +1,43 @@
+package com.acme.utils;
+
+import java.util.HashMap;
+
+import com.acme.model.Employee;
+
+public class Slicer {
+	public static Employee sliceEmployeeAndSchedule(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		employee.setName(data[0]);
+		employee.setWorkSchedule(workSchedule);
+		return employee;
+	}
+
+	public static void sliceVoidData(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		HashMap<String, String> employeeSchedule = new HashMap<String, String>();
+		System.out.println("EMPLOYEE: " + data[0]);
+		for (String work : workSchedule) {
+			System.out.println("day: " + work.substring(0, 2));
+			String day = work.substring(0, 2);
+			System.out.println("time: " + work.substring(2));
+			String time = work.substring(2);
+			int workedHours = 0;
+			employeeSchedule.put(day, time);
+		}
+//		employee.setWork(employeeSchedule);
+	}
+
+	public static int getWorkedHours(String time) {
+		int hours = 0;
+		String[] workedHours = time.split("-");
+		System.out.println("Hour 1: " + workedHours[0]);
+		System.out.println("Hour 2: " + workedHours[1]);
+		System.out
+				.println("Posible substaction: " + (Integer.valueOf(workedHours[0]) - Integer.valueOf(workedHours[1])));
+		return hours;
+	}
+}

@@ -1,0 +1,26 @@
+package com.acme.schedules.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.acme.schedules.model.Employee;
+
+public class EmployeeController {
+	public void compareEmployeeSchedules(Employee employee1,Employee employee2) {
+		HashMap<String,ArrayList<String>> employee1Data= employee1.getWorkSchedule();
+		HashMap<String,ArrayList<String>> employee2Data= employee2.getWorkSchedule();
+		int employee1Hour;
+		int employee1Minute;
+		int employee2Hour;
+		int employee2Minute;
+		for (Map.Entry<String, ArrayList<String>> entry1 : employee2Data.entrySet()) {
+		      String key = entry1.getKey();                    
+		      if(employee2Data.containsKey(key)){
+		          ArrayList<String> value1 = entry1.getValue();
+		          ArrayList<String> value2 = employee2Data.get(key); 
+		        System.out.println ("Se encontro similar key con valor : " + key + " el valor repetido es: " + value1+" -- " + value2);            
+		      }
+		    }
+	}
+}

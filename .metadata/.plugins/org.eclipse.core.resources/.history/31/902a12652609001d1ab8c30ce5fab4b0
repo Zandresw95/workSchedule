@@ -1,0 +1,57 @@
+package com.acme.utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.acme.model.Employee;
+
+public class Slicer {
+	public static Employee sliceEmployeeAndSchedule(String line) {
+		Employee employee = new Employee();
+		String[] data = line.split("=");
+		String[] workSchedule = data[1].split(",");
+		employee.setName(data[0]);
+		employee.setWorkSchedule(sliceSchedule(workSchedule));
+		return employee;
+	}
+
+	public static HashMap<String, HashMap<String, Integer>> sliceSchedule(String[] schedule) {
+		HashMap<String, HashMap<String, Integer>> employeeSchedule = new HashMap<String, HashMap<String, Integer>>();
+		for (String work : schedule) {
+			HashMap<String, Integer> workOfDay = new HashMap<String, Integer>();
+			String day = work.substring(0, 2);
+			String time = work.substring(2);
+			workOfDay = sliceHour(time);
+			employeeSchedule.put(day, workOfDay);
+		}
+		return employeeSchedule;
+	}
+	
+	public static HashMap<String, ArrayList<String>> sliceScheduleHours(String[] schedule) {
+		HashMap<String, ArrayList<String>> employeeSchedule = new HashMap<String, ArrayList<String>>();
+		for (String work : schedule) {
+			String day = work.substring(0, 2);
+			String time = work.substring(2);
+			employeeSchedule.put(day, sliceTime(time));
+		}
+		return employeeSchedule;
+	}
+
+	public static ArrayList<String> sliceTime(String time) {
+		String[] hours = time.split("-");
+		ArrayList<String> workTime = new ArrayList<String>();
+		for (String hour : hours) {
+			workTime.add(hour);
+		}
+		return workTime;
+	}
+
+	public static HashMap<String, Integer> sliceHour(String time) {
+		String[] data = time.split("-");
+		HashMap<String, Integer> hour = new HashMap<String, Integer>();
+		hour.put("initialHour", Integer.parseInt((String) data[0].subSequence(0, 2)));
+		hour.put("finalHour", Integer.parseInt((String) data[1].subSequence(0, 2)));
+		return hour;
+	}
+
+}

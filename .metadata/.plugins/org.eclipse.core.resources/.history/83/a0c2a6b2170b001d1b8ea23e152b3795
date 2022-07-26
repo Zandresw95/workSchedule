@@ -1,0 +1,28 @@
+package com.acme.schedules.model;
+
+import java.util.HashMap;
+
+public class Employee {
+	private String Name;
+	private HashMap<String,String> workSchedule=new HashMap<String, String>();
+	
+	public Employee() {}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public HashMap<String, String> getWorkSchedule() {
+		return workSchedule;
+	}
+
+	public void setWorkSchedule(HashMap<String, String> workSchedule) {
+		this.workSchedule = workSchedule;
+	}
+	
+	
+}

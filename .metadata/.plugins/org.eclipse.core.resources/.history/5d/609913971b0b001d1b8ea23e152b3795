@@ -1,0 +1,12 @@
+package com.acme.schedules.controller;
+
+import com.acme.schedules.model.Employee;
+
+public class EmployeeController {
+	public void compareEmployeeSchedules(Employee employee1,Employee employee2) {
+		int employee1Hour;
+		int employee1Minute;
+		int employee2Hour;
+		int employee2Minute;
+	}
+}

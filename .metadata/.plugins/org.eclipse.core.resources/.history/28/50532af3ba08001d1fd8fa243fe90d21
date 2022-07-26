@@ -1,0 +1,13 @@
+package com.acme.controller;
+
+import com.acme.model.Employee;
+
+public class Payment {
+	public String calculateEmployeePayment(Employee employee) {
+		int salary=0;
+		for(String day:employee.getWork().keySet()) {
+			employee.getWork().get(day);
+		}
+		return "The amount to pay " + employee.getName() + " is: ";
+	}
+}
